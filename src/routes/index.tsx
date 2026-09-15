@@ -6,7 +6,7 @@ import { SectionKicker } from "@/components/section-kicker";
 import { Button } from "@/components/ui/button";
 import { WorkCard } from "@/components/work-card";
 import { useCopy, useLocale } from "@/lib/copy";
-import { featuredWorks, getWork, loc } from "@/lib/works";
+import { featuredWorks, getWork, loc, WORKS } from "@/lib/works";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -14,7 +14,7 @@ function Home() {
   const copy = useCopy();
   const lang = useLocale();
   const navigate = useNavigate();
-  const works = featuredWorks();
+  const selected = featuredWorks();
   const [hovered, setHovered] = useState<string | null>(null);
   const hoveredWork = hovered ? getWork(hovered) : undefined;
 
@@ -22,13 +22,13 @@ function Home() {
     <main>
       <section className="relative h-[100svh] min-h-[560px] overflow-hidden bg-background">
         <SceneStage
-          works={works}
+          works={WORKS}
           selected={hovered}
           onHover={setHovered}
-          onSelect={(slug) => navigate({ to: "/work/$slug", params: { slug } })}
+          onSelect={(slug) => navigate({ to: "/gallery", search: { work: slug } })}
           label={copy.gallery.loading}
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/55" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 px-4 pb-8 sm:px-8 sm:pb-10">
           <div className="mx-auto flex max-w-6xl flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div className="max-w-xl">
@@ -88,7 +88,7 @@ function Home() {
           </Button>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          {works.map((work) => (
+          {selected.map((work) => (
             <WorkCard key={work.slug} work={work} />
           ))}
         </div>

@@ -1,5 +1,6 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { SceneStage } from "@/components/scene-stage";
 import { Button } from "@/components/ui/button";
 import { useCopy, useLocale } from "@/lib/copy";
 import { adjacentWork, getWork, loc } from "@/lib/works";
@@ -20,6 +21,7 @@ function CaseStudyPage() {
   const lang = useLocale();
   const prev = adjacentWork(work.slug, -1);
   const next = adjacentWork(work.slug, 1);
+
 
   return (
     <main className="pb-24 pt-20">
@@ -50,6 +52,33 @@ function CaseStudyPage() {
         </div>
       </div>
 
+      <section className="mx-auto mt-6 max-w-6xl px-4 sm:px-6">
+        <div className="relative h-[48vh] min-h-[280px] overflow-hidden rounded-xl bg-surface">
+          <SceneStage
+            works={[work]}
+            selected={work.slug}
+            onHover={() => undefined}
+            onSelect={() => undefined}
+            autoRotate
+            enableZoom
+            layout="solo"
+            label={copy.gallery.loading}
+          />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-between px-4 py-3">
+            <p className="text-xs tracking-widest text-muted uppercase">
+              {copy.case.inRoom}
+            </p>
+            <div className="pointer-events-auto">
+              <Button asChild variant="outline" size="sm">
+                <Link to="/gallery" search={{ work: work.slug }}>
+                  {copy.case.openGallery}
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div className="mx-auto mt-14 grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_16rem]">
         <div className="max-w-2xl space-y-5 text-base leading-relaxed text-muted">
           {work.body[lang].map((paragraph) => (
@@ -63,7 +92,9 @@ function CaseStudyPage() {
           <Meta label={copy.case.role} value={loc(work.roles, lang)} />
           <Meta label={copy.case.outcome} value={loc(work.outcome, lang)} />
           <Button asChild variant="outline" className="w-full">
-            <Link to="/gallery">{copy.case.openGallery}</Link>
+            <Link to="/gallery" search={{ work: work.slug }}>
+              {copy.case.openGallery}
+            </Link>
           </Button>
         </aside>
       </div>

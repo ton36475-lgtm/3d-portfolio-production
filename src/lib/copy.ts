@@ -14,8 +14,8 @@ export const copy = {
       eyebrow: "Phitsanulok · Atelier",
       title: "SIRAWAT × BALL",
       lede: "A two-principal studio for brand worlds, spatial identity, and cinematic digital work.",
-      hint: "Drag to orbit · Click a frame",
-      hintMobile: "Swipe to orbit · Tap a frame",
+      hint: "Drag to look · Click a frame",
+      hintMobile: "Swipe to look · Tap a frame",
       enterGallery: "Enter 3D gallery",
       viewWork: "View work",
     },
@@ -83,6 +83,7 @@ export const copy = {
       filterAll: "All",
       empty: "No projects in this discipline yet.",
       view: "View project",
+      open3d: "Open in 3D",
     },
     filters: {
       brand: "Brand",
@@ -100,6 +101,7 @@ export const copy = {
       client: "Client",
       year: "Year",
       openGallery: "See it in 3D",
+      inRoom: "This work in the room",
     },
     gallery: {
       kicker: "Room",
@@ -109,6 +111,7 @@ export const copy = {
       open: "Open case study",
       close: "Close",
       loading: "Preparing the room",
+      inRoom: "In the room",
     },
     studio: {
       kicker: "Studio",
@@ -186,8 +189,8 @@ export const copy = {
       eyebrow: "พิษณุโลก · ห้องทำงาน",
       title: "SIRAWAT × BALL",
       lede: "สตูดิโอสองคน สำหรับโลกแบรนด์ อัตลักษณ์ของพื้นที่ และงานดิจิทัลแบบภาพยนตร์",
-      hint: "ลากเพื่อหมุน · คลิกกรอบภาพ",
-      hintMobile: "ปัดเพื่อหมุน · แตะกรอบภาพ",
+      hint: "ลากเพื่อมอง · คลิกกรอบภาพ",
+      hintMobile: "ปัดเพื่อมอง · แตะกรอบภาพ",
       enterGallery: "เข้าแกลเลอรี 3D",
       viewWork: "ดูงาน",
     },
@@ -255,6 +258,7 @@ export const copy = {
       filterAll: "ทั้งหมด",
       empty: "ยังไม่มีงานในสาขานี้",
       view: "ดูโปรเจกต์",
+      open3d: "เปิดในสามมิติ",
     },
     filters: {
       brand: "แบรนด์",
@@ -272,6 +276,7 @@ export const copy = {
       client: "ลูกค้า",
       year: "ปี",
       openGallery: "ดูในสามมิติ",
+      inRoom: "งานนี้ในห้อง",
     },
     gallery: {
       kicker: "ห้อง",
@@ -281,6 +286,7 @@ export const copy = {
       open: "เปิดเคส",
       close: "ปิด",
       loading: "กำลังจัดห้อง",
+      inRoom: "ในห้อง",
     },
     studio: {
       kicker: "สตูดิโอ",
